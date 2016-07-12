@@ -1,0 +1,34 @@
+{
+  "name": "react-markdown",
+  "version": "0.0.1",
+  "description": "A component to render markdown into JSX",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "babel --presets es2015,stage-0 -d js/lib/ js/src/",
+    "postinstall": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herrmann-intl/react-markdown.git"
+  },
+  "keywords": [
+    "react",
+    "markdown"
+  ],
+  "dependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-react": "^6.1.18",
+    "react": "^15.0.1",
+    "marked": "^0.3.5",
+    "lodash": "^4.13.1"
+  },
+  "author": "Andrew Swerlick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herrmann-intl/react-markdown/issues"
+  },
+  "homepage": "https://github.com/herrmann-intl/react-markdown#readme"
+}
