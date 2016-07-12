@@ -3,7 +3,6 @@ import React from 'react'
 import _ from 'lodash'
 
 import {ReactRenderer, ReactParser} from './marked-react'
-import quadrantStyles from 'quadrants.css'
 
 export class Markdown extends React.Component{
 
