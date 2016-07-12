@@ -2,10 +2,10 @@
   "name": "react-markdown",
   "version": "0.0.1",
   "description": "A component to render markdown into JSX",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel --presets es2015,stage-0 -d js/lib/ js/src/",
+    "compile": "babel --presets es2015,stage-0 -d lib/ src/",
     "postinstall": "npm run compile"
   },
   "repository": {
