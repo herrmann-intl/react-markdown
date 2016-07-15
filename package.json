@@ -5,8 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel --presets es2015,stage-0,react -d lib/ src/",
-    "postinstall": "npm run compile"
+    "compile": "babel --presets es2015,stage-0,react -d lib/ src/"
   },
   "repository": {
     "type": "git",
