@@ -17,13 +17,17 @@
     "markdown"
   ],
   "dependencies": {
+    "marked": "^0.3.5",
+    "lodash": "^4.13.1"
+  },
+  "peerDependencies":{
+    "react": "^15.0.1"
+  },
+  "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
-    "babel-preset-react": "^6.1.18",
-    "react": "^15.0.1",
-    "marked": "^0.3.5",
-    "lodash": "^4.13.1"
+    "babel-preset-react": "^6.1.18"
   },
   "author": "Andrew Swerlick",
   "license": "ISC",
