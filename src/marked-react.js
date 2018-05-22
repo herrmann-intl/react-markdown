@@ -21,9 +21,13 @@ export class ReactRenderer extends marked.Renderer{
       // If all the children being rendered are just text elements,
       // feed them into a the textPreprocessor as a single template to allow
       // for additional transformations
-      return this.textPreprocessor && _.every(text, t=> typeof(t) == "string") ?
-        this.textPreprocessor(text.join(" ")) :
-        text
+      if(this.textPreprocessor && _.every(text, t=> typeof(t) == "string")){
+        return this.textPreprocessor(text.join(" "))
+      }else if(this.textPreprocessor){
+        return text.map(t=> typeof(t) == "string" ? this.textPreprocessor(text) : text)
+      } else {
+        return text
+      }
     }
 
     heading(text, level, raw) {
