@@ -242,7 +242,7 @@ export class ReactParser extends marked.Parser{
     switch (this.token.type) {
         case 'space':
         {
-            return '';
+            return null;
         }
         case 'hr':
         {
