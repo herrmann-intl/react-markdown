@@ -28,7 +28,11 @@ export class ReactRenderer extends marked.Renderer{
 
     heading(text, level, raw) {
       const TagName = `h${level}`
-      const id = this.options.headerPrefix + raw.toLowerCase().replace(/[^\w]+/g, '-')
+      const idPart = raw.toLowerCase().replace(/[^\w]+/g, '-')
+      const id = this.options.headerPrefix ? 
+                 this.options.headerPrefix + idPart :
+                 idPart
+                  
       return <TagName id={id}>{text}</TagName>
     }
 
