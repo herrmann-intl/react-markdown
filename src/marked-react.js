@@ -26,6 +26,12 @@ export class ReactRenderer extends marked.Renderer{
         text
     }
 
+    heading(text, level, raw) {
+      const TagName = `h${level}`
+      const id = `${this.options.headerPrefix} ${raw.toLowerCase().replace(/[^\w]+/g, '-')}`
+      return <TagName id={id}>text</TagName>
+    }
+
     list(body, ordered) {
       const type = ordered ? 'ol' : 'ul';
       return React.createElement(type, {}, body)
