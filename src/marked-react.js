@@ -22,7 +22,7 @@ export class ReactRenderer extends marked.Renderer{
       // feed them into a the textPreprocessor as a single template to allow
       // for additional transformations
       if(Array.isArray(text) && _.every(text, t=> typeof(t) == "string")){
-        return this.textPreprocessor(collection.join(" "))
+        return this.textPreprocessor(text.join(" "))
       } else if(Array.isArray(text)) {
         return text.map(t=> normalizeText(t))
       } else {
