@@ -24,7 +24,7 @@ export class ReactRenderer extends marked.Renderer{
       if(this.textPreprocessor && _.every(text, t=> typeof(t) == "string")){
         return this.textPreprocessor(text.join(" "))
       }else if(this.textPreprocessor && text[0]){
-        return text[0].map(t=> typeof(t) == "string" ? this.textPreprocessor(text) : text)
+        return text[0].map(t=> typeof(t) == "string" ? this.textPreprocessor(t) : text)
       } else {
         return text
       }
