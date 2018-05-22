@@ -235,7 +235,7 @@ export class ReactParser extends marked.Parser{
       out.push(this.tok());
     }
 
-    return out.map((e,i)=> React.cloneElement(e, {key: i}));
+    return out.filter((e) => e != false).map((e,i)=> React.cloneElement(e, {key: i}));
   }
 
   tok() {
