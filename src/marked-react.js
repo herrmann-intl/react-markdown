@@ -21,14 +21,12 @@ export class ReactRenderer extends marked.Renderer{
       // If all the children being rendered are just text elements,
       // feed them into a the textPreprocessor as a single template to allow
       // for additional transformations
-      const collection = text.length == 1 && Array.isArray(text[0]) ? text[0] : text
-      
-      if(this.textPreprocessor && _.every(collection, t=> typeof(t) == "string")){
+      if(Array.isArray(text) && _.every(text, t=> typeof(t) == "string")){
         return this.textPreprocessor(collection.join(" "))
-      }else if(this.textPreprocessor && collection){
-        return collection.map(t=> typeof(t) == "string" ? this.textPreprocessor(t) : t)
+      } else if(Array.isArray(text)) {
+        return text.map(t=> normalizeText(t))
       } else {
-        return collection
+        return text
       }
     }
 
