@@ -17,6 +17,7 @@ export class ReactRenderer extends marked.Renderer{
       this.textPreprocessor = options.textPreprocessor
     }
 
+    // TODO: unknown if this is still necessary.  See the commit which added this TODO for context.
     normalizeText(text){
       // If all the children being rendered are just text elements,
       // feed them into a the textPreprocessor as a single template to allow
@@ -113,7 +114,12 @@ class ReactInlineLexer extends marked.InlineLexer{
             , href
             , cap;
 
+        // If we encounter more than one text token in a row, we stitch them together.
+        // Initialize to 2 so we don't try to stitch immediately.
+        let iterations_since_last_text_token = 2;
         while (src) {
+            iterations_since_last_text_token += 1;
+
             // escape
             if (cap = this.rules.escape.exec(src)) {
                 src = src.substring(cap[0].length);
@@ -217,8 +223,17 @@ class ReactInlineLexer extends marked.InlineLexer{
 
             // text
             if (cap = this.rules.text.exec(src)) {
+                if(iterations_since_last_text_token < 2) {
+                    let i = out.length - 1;
+                    let stitchable = out[i];
+                    let new_val = stitchable + cap;
+                    out[i] = new_val;
+                } else {
+                    out.push(this.smartypants(cap[0]));
+                }
+
                 src = src.substring(cap[0].length);
-                out.push(this.smartypants(cap[0]));
+                iterations_since_last_text_token = 0;
                 continue;
             }
 
